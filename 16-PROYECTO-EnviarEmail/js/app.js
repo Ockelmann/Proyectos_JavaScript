@@ -11,6 +11,7 @@ const resetBtn = document.querySelector('#resetBtn');
 
 eventListeners();
 
+
 function eventListeners() {
      // Inicio de la aplicación y deshabilitar submit
      document.addEventListener('DOMContentLoaded', inicioApp);
@@ -28,7 +29,6 @@ function eventListeners() {
 }
 
 
-
 // funciones
 function inicioApp() {
      // deshabilitar el envio
@@ -41,14 +41,16 @@ function inicioApp() {
 
 function validarFormulario(e) {
     
+     e.target.classList.remove( 'border-red-500');        
      if(e.target.value.length > 0 ) {
-          campo.style.borderBottomColor = 'green';
-          campo.classList.remove('error');
+          
+          e.target.style.borderBottomColor = 'green';
+          
      } else {
+          e.target.style.borderBottomColor = 'red';   
           e.target.classList.add('border', 'border-red-500');
      }
-
-
+     
 
      // Validar unicamente el email
      if(this.type === 'email') {
