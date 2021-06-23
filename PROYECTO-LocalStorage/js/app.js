@@ -29,7 +29,7 @@ function agregarTweet(e) {
      
      // validación
      if(tweet === '') {
-          mostrarError('Un mensaje no puede ir vacio');
+          mostrarError('Mensaje Envio');
           return;
      }
 
