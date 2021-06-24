@@ -11,8 +11,8 @@
   <body>
 
     <div class="container mx-auto mt-20 bg-white">     
-        <header id="header" class="bg-pink-800 p-3 font-bold">
-            Enviar Nuevo Mail
+        <header id="header" class="bg-blue-800 p-3 font-bold">
+            Enviar Mail
         </header>
 
 
@@ -20,6 +20,10 @@
             <div class="mb-10">
                 <label for="email">Para:</label>
                 <input class="bg-gray-100 border shadow p-3 w-full"  id="email" type="email">
+            </div>
+            <div class="mb-10">
+                <label for="email">De:</label>
+                <input class="bg-gray-100 border shadow p-3 w-full"  id="nombre" type="nombre">
             </div>
             <div class="mb-10">
                 <label for="asunto">Asunto</label>
@@ -41,7 +45,9 @@
                 </div>
             </div>
 
-            <div id="loaders"></div>
+            <div id="loaders">
+
+            </div>
             
             <div class="flex justify-between">
                     <button 
@@ -55,7 +61,7 @@
                         id="resetBtn" 
                         class="w-full bg-green-600 px-2 py-5 text-white items-center uppercase font-bold items-center flex justify-center" 
                         type="submit"
-                        >Resetear Form
+                        >Resetear 
                             <i class="material-icons right ml-3">delete</i>
                     </button>
             </div>

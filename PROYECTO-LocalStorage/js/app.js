@@ -7,6 +7,7 @@ let tweets = [];
 eventListeners();
 
 function eventListeners() {
+
      //Cuando se envia el formulario
      formulario.addEventListener('submit', agregarTweet);
 
@@ -19,10 +20,12 @@ function eventListeners() {
           console.log(tweets);
           crearHTML();
      });
+     
 }
 
 // Añadir tweet del formulario
 function agregarTweet(e) {
+
      e.preventDefault();
      // leer el valor del textarea
      const tweet = document.querySelector('#tweet').value;

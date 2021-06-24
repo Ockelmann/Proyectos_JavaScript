@@ -2,6 +2,7 @@
 const email = document.querySelector('#email');
 const asunto = document.querySelector('#asunto');
 const mensaje = document.querySelector('#mensaje');
+const nombre = document.querySelector('#nombre');
 
 const btnEnviar = document.querySelector('#enviar');
 const formularioEnviar = document.querySelector('#enviar-mail');
@@ -20,6 +21,7 @@ function eventListeners() {
      email.addEventListener('blur', validarFormulario);
      asunto.addEventListener('blur', validarFormulario);
      mensaje.addEventListener('blur', validarFormulario);
+     nombre.addEventListener('blur', validarFormulario);
 
      // Boton de enviar en el submit
      formularioEnviar.addEventListener('submit', enviarEmail);

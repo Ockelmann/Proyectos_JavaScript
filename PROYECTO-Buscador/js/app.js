@@ -6,6 +6,7 @@ const maximo = document.querySelector('#maximo');
 const puertas = document.querySelector('#puertas');
 const transmision = document.querySelector('#transmision');
 const color = document.querySelector('#color');
+const motor = document.querySelector('#motor');
 
 // crear los años
 const years = document.createElement('option');
@@ -28,7 +29,8 @@ const datosBusqueda = {
     maximo: '',
     puertas: '',
     transmision:'',
-    color:''
+    color:'',
+    motor:''
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -81,6 +83,12 @@ color.addEventListener('input', e => {
     filtrarAuto();
 });
 
+motor.addEventListener('input', e => {
+    datosBusqueda.motor = e.target.value
+    // Mandar llamar la función de filtrar Autos
+    filtrarAuto();
+});
+
 function limpiarHTML() {
     // Leer el elemento Resultado
     const contenedor = document.querySelector('#resultado');
@@ -101,7 +109,7 @@ function mostrarAutos(autos){
     autos.forEach(auto => {
         const autoHTML = document.createElement('p');
         autoHTML.innerHTML = `
-            <p>${auto.marca} ${auto.modelo} - ${auto.year} - ${auto.puertas} Puertas - Transmisión: ${auto.transmision} - Precio: ${auto.precio} - Color: ${auto.color}</p>
+            <p>${auto.marca} ${auto.modelo} - ${auto.year} - ${auto.puertas} Puertas - Transmisión: ${auto.transmision} - Precio: ${auto.precio} - Color: ${auto.color} - Motor: ${auto.motor} </p>
         `;
         contenedor.appendChild(autoHTML);
     })
@@ -116,7 +124,7 @@ function noResultado() {
 }
 
 function filtrarAuto() {
-   const resultado = autos.filter(filtrarMarca).filter(filtrarYear).filter(filtrarMinimo).filter(filtrarMaximo).filter(filtrarPuertas).filter(filtrarTransmision).filter(filtrarColor);
+   const resultado = autos.filter(filtrarMarca).filter(filtrarYear).filter(filtrarMinimo).filter(filtrarMaximo).filter(filtrarPuertas).filter(filtrarTransmision).filter(filtrarColor).filter(filtrarMotor);
 
 //    console.log(resultado);
    if(resultado.length){
@@ -170,6 +178,13 @@ function filtrarTransmision(auto) {
 function filtrarColor(auto){
     if(datosBusqueda.color){
         return auto.color === datosBusqueda.color;
+    } 
+    return  auto;
+}
+
+function filtrarMotor(auto){
+    if(datosBusqueda.motor){
+        return auto.motor === datosBusqueda.motor;
     } 
     return  auto;
 }
