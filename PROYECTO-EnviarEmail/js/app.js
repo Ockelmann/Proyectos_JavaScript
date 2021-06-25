@@ -117,4 +117,5 @@ function validarEmail(campo) {
           campo.style.borderBottomColor = 'red';
           campo.classList.add('error');
      }
+     alert('Email Invalido');
 }

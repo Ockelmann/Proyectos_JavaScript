@@ -29,21 +29,24 @@ function agregarTweet(e) {
      e.preventDefault();
      // leer el valor del textarea
      const tweet = document.querySelector('#tweet').value;
+     const tweet2 = document.querySelector('#tweet2').value;
      
      // validación
      if(tweet === '') {
-          mostrarError('Mensaje Envio');
+          mostrarError('Recordatorio no enviado');
           return;
      }
 
      // Crear un objeto Tweet
      const tweetObj = {
           id: Date.now(),
-          texto: tweet
+          texto: tweet,
+          texto2: tweet2
      }
 
      // Añadirlo a mis tweets
-     tweets = [...tweets, tweetObj];
+     tweets = [...tweets, tweet2, tweetObj];
+     console.log(tweets);
      
      // Una vez agregado, mandamos renderizar nuestro HTML
      crearHTML();
@@ -77,18 +80,22 @@ function crearHTML() {
      
                // Crear elemento y añadirle el contenido a la lista
                const li = document.createElement('li');
+               const li2 = document.createElement('li');
 
                // Añade el texto
                li.innerText = tweet.texto;
+               li2.innerText = tweet2.texto;
 
                // añade el botón de borrar al tweet
                li.appendChild(botonBorrar);
 
                // añade un atributo único...
                li.dataset.tweetId = tweet.id;
+               li2.dataset.tweetId = tweet2.id;
 
                // añade el tweet a la lista
-               listaTweets.appendChild(li);
+               listaTweets.appendChild(li,li2);
+
           });
      }
 
@@ -103,16 +110,19 @@ function borrarTweet(e) {
      const id = e.target.parentElement.dataset.tweetId;
      tweets = tweets.filter( tweet => tweet.id != id  );
      crearHTML();
+     alert('Eliminado Correctamente')
 }
 
 // Agrega tweet a local storage
 function sincronizarStorage() {
      localStorage.setItem('tweets', JSON.stringify(tweets));
+     
 }
 
 // Elimina los cursos del carrito en el DOM
 function limpiarHTML() {
      while(listaTweets.firstChild) {
+          
           listaTweets.removeChild(listaTweets.firstChild);
      }
 }

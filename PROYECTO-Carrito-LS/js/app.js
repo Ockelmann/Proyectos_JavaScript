@@ -36,6 +36,7 @@ function agregarCurso(e) {
           const curso = e.target.parentElement.parentElement;
           // Enviamos el curso seleccionado para tomar sus datos
           leerDatosCurso(curso);
+          alert('Agregado Correctamente');
      }
 }
 
@@ -86,6 +87,7 @@ function eliminarCurso(e) {
           articulosCarrito = articulosCarrito.filter(curso => curso.id !== cursoId);
 
           carritoHTML();
+          alert('Eliminado Correctamente');
      }
 }
 
@@ -126,6 +128,8 @@ function sincronizarStorage() {
 function vaciarCarrito() {
      // forma rapida (recomendada)
      while(contenedorCarrito.firstChild) {
+          alert('Desea vaciar el carrito');
+          localStorage.clear();
           contenedorCarrito.removeChild(contenedorCarrito.firstChild);
       }
 }
