@@ -9,7 +9,6 @@ function eventListeners() {
     document.addEventListener('DOMContentLoaded', preguntarPresupuesto);
     formulario.addEventListener('submit', agregarGasto);
     gastosListado.addEventListener('click', eliminarGasto);
-    gastosListado.addEventListener('click', editarGasto);
 }
 
 // Classes
@@ -74,7 +73,7 @@ class UI {
 
         // Iterar sobre los gastos 
         gastos.forEach(gasto => {
-            const {nombre, cantidad, id } = gasto;
+            const {nombre, cantidad,date, id } = gasto;
             
             // Crear un LI
             const nuevoGasto = document.createElement('li');
@@ -85,6 +84,7 @@ class UI {
             nuevoGasto.innerHTML = `
                 ${nombre}
                 <span class="badge badge-primary badge-pill">$ ${cantidad}</span>
+                ${date}
             `;
 
             // boton borrar gasto.
@@ -165,17 +165,18 @@ function agregarGasto(e) {
      // Leer del formulario de Gastos
      const nombre = document.querySelector('#gasto').value;
      const cantidad = Number( document.querySelector('#cantidad').value);
+     const date = document.querySelector('#date').value;
 
      // Comprobar que los campos no esten vacios
-     if(nombre === '' || cantidad === '') {
+     if(nombre === '' || cantidad === '' || date === '') {
           // 2 parametros: mensaje y tipo
-          ui.imprimirAlerta('Ambos campos son obligatorios', 'error');
+          ui.imprimirAlerta('Todos los campos son obligatorios', 'error');
      } else if(cantidad <= 0 || isNaN(cantidad )) {
 
           // si hay una cantidad negativa o letras...
           ui.imprimirAlerta('Cantidad no válida', 'error')
      } else {
-            const gasto = { nombre, cantidad, id: Date.now() };
+            const gasto = { nombre, cantidad,date, id: Date.now() };
 
             // Añadir nuevo gasto 
             presupuesto.nuevoGasto(gasto)
