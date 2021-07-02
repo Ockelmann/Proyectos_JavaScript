@@ -25,6 +25,7 @@
                                 <option value="1">Americano</option>
                                 <option value="2">Asiatico</option>
                                 <option value="3">Europeo</option>
+                                <option value="4">Italiano</option>
                             </select>
                         </div>
                         <div class="flex items-center mb-5">
@@ -34,6 +35,15 @@
                               >Año:</label>
                               <select  class="flex-1 bg-gray-100 p-3 appearance-none" id="year"></select>
                         </div>
+
+                        <div class="flex items-center mb-5">
+                          <label 
+                            class="font-bold  uppercase mr-2 w-20"
+                            for="tiempo"
+                          >Tiempo Contrato</label>
+                          <select  class="flex-1 bg-gray-100 p-3 appearance-none" id="tiempo"></select>
+                    </div>
+
                         <fieldset>
                               <legend  class="font-bold  uppercase text-2xl text-center w-full">Tipo Seguro</legend>
 
@@ -43,6 +53,11 @@
                                           <input type="radio" name="tipo" value="basico" checked>
                                       </label>
                                   </div>
+                                  <div>
+                                    <label class="font-bold  uppercase mr-2">Semi-Completo</label>
+                                        <input type="radio" name="tipo" value="medio" checked>
+                                    </label>
+                                </div>
                                   <div>
                                       <label class="font-bold  uppercase mr-2">Completo</label>
                                           <input type="radio" name="tipo" value="completo">
