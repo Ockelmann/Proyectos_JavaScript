@@ -3,6 +3,7 @@ const formulario = document.getElementById('agregar-gasto');
 const gastosListado = document.querySelector('#gastos ul');
 
 
+
 // Eventos
 eventListeners();
 function eventListeners() {
@@ -16,6 +17,7 @@ class Presupuesto {
     constructor(presupuesto) {
         this.presupuesto = Number(presupuesto);
         this.restante = Number(presupuesto);
+        this.suma = Number(0);
         this.gastos = [];
     }
 
@@ -32,6 +34,7 @@ class Presupuesto {
     calcularRestante() {
         const gastado = this.gastos.reduce((total, gasto) => total + gasto.cantidad, 0);
         this.restante = this.presupuesto - gastado;
+        this.suma = this.suma + gastado;
     }
 }
 
@@ -40,6 +43,7 @@ class UI {
     insertarPresupuesto( cantidad ) {
      document.querySelector('#total').textContent = cantidad.presupuesto;
      document.querySelector('#restante').textContent = cantidad.restante;
+     document.querySelector('#sum').textContent = cantidad.suma;
     }
     
     imprimirAlerta(mensaje, tipo) {
@@ -67,7 +71,8 @@ class UI {
 
     // Inserta los gastos a la lista 
     agregarGastoListado(gastos) {
-
+       
+        
         // Limpiar HTML
         this.limpiarHTML();
 
