@@ -5,6 +5,7 @@
     const formulario = document.querySelector('#formulario');
    
     const nombreInput = document.querySelector('#nombre');
+    const apellidoInput = document.querySelector('#apellido');
     const emailInput = document.querySelector('#email');
     const empresaInput = document.querySelector('#empresa');
     const telefonoInput = document.querySelector('#telefono');
@@ -71,8 +72,9 @@
     }
 
     function llenarFormulario(datosCliente) {
-        const { nombre, email, empresa, telefono } = datosCliente;
+        const { nombre,apellido, email, empresa, telefono } = datosCliente;
          nombreInput.value = nombre;
+         apellidoInput.value = apellido;
          emailInput.value = email;
          empresaInput.value = empresa;
          telefonoInput.value = telefono;
@@ -81,7 +83,7 @@
     function actualizarCliente(e) {
         e.preventDefault();
 
-        if( nombreInput.value === '' || emailInput.value === '' || empresaInput.value === '' || telefonoInput.value === '' ) {
+        if( nombreInput.value === '' || apellidoInput.value ===  '' || emailInput.value === '' || empresaInput.value === '' || telefonoInput.value === '' ) {
             imprimirAlerta('Todos los campos son obligatorios', 'error');
             return;
         }
@@ -89,6 +91,7 @@
         // actualizar...
         const clienteActualizado = {
             nombre: nombreInput.value,
+            apellido: apellidoInput.value,
             email: emailInput.value,
             empresa: empresaInput.value,
             telefono: telefonoInput.value,

@@ -78,12 +78,14 @@ function mostrarClima(datos) {
 
   // Formatear el Clima...
 
-  const { name, main: { temp, temp_max, temp_min } } = datos;
+  const { name, main: { temp, temp_max, temp_min,pressure,humidity } } = datos;
 
 
   const grados = KelvinACentigrados(temp);
-  const min = KelvinACentigrados(temp_max);
-  const max = KelvinACentigrados(temp_min);
+  const min = KelvinACentigrados(temp_min);
+  const max = KelvinACentigrados(temp_max);
+  const pre = KelvinACentigrados(pressure);
+  const hum = KelvinACentigrados(humidity);
 
   const nombreCiudad = document.createElement('p');
   nombreCiudad.innerHTML = `Clima en: ${name}`;
@@ -94,13 +96,22 @@ function mostrarClima(datos) {
   actual.classList.add('font-bold', 'text-6xl')
 
   const tempMaxima = document.createElement('p');
-  tempMaxima.innerHTML = `Max: ${max} &#8451;`;
+  tempMaxima.innerHTML = `Max: ${max} ;`;
   tempMaxima.classList.add('text-xl')
 
 
   const tempMinima = document.createElement('p');
   tempMinima.innerHTML = `Min: ${min} &#8451;`;
   tempMinima.classList.add('text-xl')
+
+  const presion = document.createElement('p');
+  presion.innerHTML = `Presion: ${pre} ;`;
+  presion.classList.add('text-xl')
+
+
+  const humedad = document.createElement('p');
+  humedad.innerHTML = `Humedad: ${hum} ;`;
+  humedad.classList.add('text-xl')
 
 
   const resultadoDiv = document.createElement('div');
@@ -109,6 +120,8 @@ function mostrarClima(datos) {
   resultadoDiv.appendChild(actual);
   resultadoDiv.appendChild(tempMaxima);
   resultadoDiv.appendChild(tempMinima);
+  resultadoDiv.appendChild(presion);
+  resultadoDiv.appendChild(humedad);
 
   resultado.appendChild(resultadoDiv)
 }
