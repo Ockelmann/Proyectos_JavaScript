@@ -84,8 +84,8 @@ function mostrarClima(datos) {
   const grados = KelvinACentigrados(temp);
   const min = KelvinACentigrados(temp_min);
   const max = KelvinACentigrados(temp_max);
-  const pre = KelvinACentigrados(pressure);
-  const hum = KelvinACentigrados(humidity);
+  const pre = pressure;
+  const hum = humidity;
 
   const nombreCiudad = document.createElement('p');
   nombreCiudad.innerHTML = `Clima en: ${name}`;
@@ -105,12 +105,12 @@ function mostrarClima(datos) {
   tempMinima.classList.add('text-xl')
 
   const presion = document.createElement('p');
-  presion.innerHTML = `Presion: ${pre} ;`;
+  presion.innerHTML = `Presion: ${pre} `;
   presion.classList.add('text-xl')
 
 
   const humedad = document.createElement('p');
-  humedad.innerHTML = `Humedad: ${hum} ;`;
+  humedad.innerHTML = `Humedad: ${hum}% `;
   humedad.classList.add('text-xl')
 
 
