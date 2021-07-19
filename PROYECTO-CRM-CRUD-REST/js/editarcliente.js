@@ -5,6 +5,7 @@ import { mostrarAlerta } from './funciones.js';
 
 
     const nombreInput = document.querySelector('#nombre');
+    const apellidoInput = document.querySelector('#apellido');
     const emailInput = document.querySelector('#email');
     const telefonoInput = document.querySelector('#telefono');
     const empresaInput = document.querySelector('#empresa');
@@ -25,9 +26,10 @@ import { mostrarAlerta } from './funciones.js';
     });
 
     function mostrarCliente(cliente) {
-        const { nombre, empresa, email, telefono, id} = cliente;
+        const { nombre,apellido, empresa, email, telefono, id} = cliente;
 
         nombreInput.value = nombre;
+        apellidoInput.value = apellido;
         empresaInput.value = empresa;
         emailInput.value = email;
         telefonoInput.value = telefono;
@@ -38,7 +40,8 @@ import { mostrarAlerta } from './funciones.js';
     async function validarCliente(e) {
         e.preventDefault();
         const cliente = {
-            nombre: nombreInput.value, 
+            nombre: nombreInput.value,
+            apellido: apellidoInput.value, 
             email: emailInput.value, 
             telefono: telefonoInput.value,
             empresa: empresaInput.value,

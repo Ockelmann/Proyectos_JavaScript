@@ -122,7 +122,7 @@ function mostrarCotizacionHTML(cotizacion) {
     limpiarHTML();
 
     console.log(cotizacion);
-    const  { PRICE, HIGHDAY, LOWDAY, CHANGEPCT24HOUR, LASTUPDATE } = cotizacion;
+    const  { PRICE, HIGHDAY, LOWDAY, CHANGEPCT24HOUR, LASTUPDATE, SUPPLY, FROMSYMBOL } = cotizacion;
 
 
     const precio = document.createElement('p');
@@ -141,11 +141,20 @@ function mostrarCotizacionHTML(cotizacion) {
     const ultimaActualizacion = document.createElement('p');
     ultimaActualizacion.innerHTML = `<p>Última Actualización: <span>${LASTUPDATE}</span></p>`;
 
+    const suministro = document.createElement('p');
+    suministro.innerHTML = `<p>Suministro: <span>${SUPPLY}</span></p>`;
+
+    const simbolo = document.createElement('p');
+    simbolo.innerHTML = `<p>Simbolo: <span>${FROMSYMBOL}</span></p>`;
+
     resultado.appendChild(precio);
     resultado.appendChild(precioAlto);
     resultado.appendChild(precioBajo);
     resultado.appendChild(ultimasHoras);
     resultado.appendChild(ultimaActualizacion);
+    resultado.appendChild(suministro);
+    resultado.appendChild(simbolo);
+
 
     formulario.appendChild(resultado);
 }
